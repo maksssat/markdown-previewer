@@ -1,0 +1,55 @@
+#preview {
+  padding: 10px;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+#preview > h2 {
+  background-color: #000;
+  color: #fff;
+  padding: 4px;
+  margin: 0;
+}
+
+#markdown {
+  background-color: #fff;
+  border: 1px solid black;
+  margin: 0;
+  padding: 10px;
+  overflow-wrap: break-word;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+  background-color: #f4f4f4;
+  color: #666;
+}
+
+pre {
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  color: rgb(95, 95, 95);
+  page-break-inside: avoid;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 1.6em;
+  max-width: 100%;
+  padding: 1em 1.5em;
+  display: block;
+  word-wrap: break-word;
+}
+
+@media (min-width: 1140px) {
+  #preview {
+    overflow: hidden;
+    flex: 0 0 48%;
+    height: 600px;
+  }
+
+  #markdown {
+    overflow: auto;
+  }
+}

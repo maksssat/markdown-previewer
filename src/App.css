@@ -1,0 +1,13 @@
+.App {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+@media (min-width: 1140px) {
+  .App {
+    flex-flow: row nowrap;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+  }
+}
