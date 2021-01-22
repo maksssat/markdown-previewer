@@ -54,8 +54,23 @@ class App extends React.Component {
     super(props);
     this.state = {
       editorText: initText,
+      fullscreen: "",
     };
     this.handleEditorChange = this.handleEditorChange.bind(this);
+    this.handleEditorClick = this.handleEditorClick.bind(this);
+    this.handlePreviewClick = this.handlePreviewClick.bind(this);
+  }
+
+  handleEditorClick() {
+    this.setState((state) => ({
+      fullscreen: state.fullscreen ? "" : "editor",
+    }));
+  }
+
+  handlePreviewClick() {
+    this.setState((state) => ({
+      fullscreen: state.fullscreen ? "" : "preview",
+    }));
   }
 
   handleEditorChange(e) {
@@ -70,8 +85,13 @@ class App extends React.Component {
         <Editor
           value={this.state.editorText}
           onChange={this.handleEditorChange}
+          onClick={this.handleEditorClick}
+          fullscreen={this.state.fullscreen}
         />
-        <Preview>
+        <Preview
+          onClick={this.handlePreviewClick}
+          fullscreen={this.state.fullscreen}
+        >
           {<div dangerouslySetInnerHTML={{ __html: markdown }} />}
         </Preview>
       </div>

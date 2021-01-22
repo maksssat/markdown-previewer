@@ -1,14 +1,7 @@
-#preview {
-  padding: 10px;
+.preview-container {
   display: flex;
   flex-flow: column nowrap;
-}
-
-#preview > h2 {
-  background-color: #000;
-  color: #fff;
-  padding: 4px;
-  margin: 0;
+  flex: 1 0px;
 }
 
 #markdown {
@@ -17,6 +10,15 @@
   margin: 0;
   padding: 10px;
   overflow-wrap: break-word;
+  flex: 1 1 auto;
+  overflow: auto;
+}
+
+table,
+td,
+th {
+  border: 1px solid black;
+  border-collapse: collapse;
 }
 
 code {
@@ -40,16 +42,13 @@ pre {
   padding: 1em 1.5em;
   display: block;
   word-wrap: break-word;
+  overflow: auto;
 }
 
 @media (min-width: 1140px) {
-  #preview {
+  .preview-container {
     overflow: hidden;
     flex: 0 0 48%;
     height: 600px;
-  }
-
-  #markdown {
-    overflow: auto;
   }
 }

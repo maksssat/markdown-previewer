@@ -1,15 +1,8 @@
 .editor-container {
-  padding: 10px;
   display: flex;
   flex-flow: column nowrap;
-  height: 600px;
-}
-
-.editor-container > h2 {
-  background-color: #000;
-  color: #fff;
-  padding: 4px;
-  margin: 0;
+  flex: 0 0 400px;
+  margin: 0 0 15px 0;
 }
 
 #editor {
@@ -18,11 +11,13 @@
   padding: 10px;
   font-size: 14px;
   resize: none;
-  flex: 1 0 auto;
+  flex: 1 1 auto;
 }
 
 @media (min-width: 1140px) {
   .editor-container {
     flex: 0 0 48%;
+    height: 600px;
+    margin: 0 15px 0 0;
   }
 }
