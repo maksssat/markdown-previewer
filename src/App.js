@@ -4,6 +4,11 @@ import Editor from "./editor/editor";
 import Preview from "./preview/preview";
 import marked from "marked";
 
+marked.setOptions({
+  gfm: true,
+  breaks: true,
+});
+
 const initText = `# Welcome to my React Markdown Previewer!
 
 ## This is a sub-heading...
@@ -46,7 +51,7 @@ And here. | Okay. | I think we get it.
 1. Use just 1s if you want!
 1. And last but not least, let's not forget embedded images:
 
-![React Logo w/ Text](https://goo.gl/Umyytc)
+![React Logo w/ Text](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png)
 `;
 
 class App extends React.Component {
@@ -82,18 +87,27 @@ class App extends React.Component {
     const markdown = marked(this.state.editorText);
     return (
       <div className="App">
-        <Editor
-          value={this.state.editorText}
-          onChange={this.handleEditorChange}
-          onClick={this.handleEditorClick}
-          fullscreen={this.state.fullscreen}
-        />
-        <Preview
-          onClick={this.handlePreviewClick}
-          fullscreen={this.state.fullscreen}
-        >
-          {<div dangerouslySetInnerHTML={{ __html: markdown }} />}
-        </Preview>
+        {this.state.fullscreen === "preview" ? null : (
+          <Editor
+            value={this.state.editorText}
+            onChange={this.handleEditorChange}
+            onClick={this.handleEditorClick}
+            fullscreen={this.state.fullscreen}
+          />
+        )}
+        {this.state.fullscreen === "editor" ? null : (
+          <Preview
+            onClick={this.handlePreviewClick}
+            fullscreen={this.state.fullscreen}
+          >
+            {
+              <div
+                id="preview"
+                dangerouslySetInnerHTML={{ __html: markdown }}
+              />
+            }
+          </Preview>
+        )}
       </div>
     );
   }
