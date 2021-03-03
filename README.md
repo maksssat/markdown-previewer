@@ -1,1 +1,1 @@
-https://myusername.github.io/markdown-previewer/
+https://maksssat.github.io/markdown-previewer/
